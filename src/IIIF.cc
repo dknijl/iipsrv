@@ -32,7 +32,7 @@
 #define IIIF_SYNTAX "IIIF syntax is {identifier}/{region}/{size}/{rotation}/{quality}{.format}"
 
 // The canonical IIIF protocol URI
-#define IIIF_PROTOCOL "http://iiif.io/api/image"
+#define IIIF_PROTOCOL "https://iiif.io/api/image"
 
 // The context is the protocol plus API version
 #define IIIF_CONTEXT IIIF_PROTOCOL "/%d/context.json"
@@ -202,7 +202,7 @@ void IIIF::run( Session* session, const string& src )
     else{
 
       string request_uri = session->headers["REQUEST_URI"];
-      string scheme = session->headers["HTTPS"].empty() ? "http://" : "https://";
+      string scheme = "https://";
 
       if (request_uri.empty()){
         throw invalid_argument( "IIIF: REQUEST_URI was not set in FastCGI request, so the ID parameter cannot be set." );
